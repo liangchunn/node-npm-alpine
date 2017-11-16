@@ -44,21 +44,6 @@ RUN apk upgrade --update \
          npm install -g npm@${NPM_VERSION} && \
          find /usr/lib/node_modules/npm -name test -o -name .bin -type d | xargs rm -rf; \
        fi \
-    && cd /usr/local/src \
-    && for key in \
-      6A010C5166006599AA17F08146C2130DFD2497F5 \
-    ; do \
-      gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
-      gpg --keyserver keyserver.pgp.com --recv-keys "$key" || \
-      gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" ; \
-    done \
-    # && curl -fSLO "https://yarnpkg.com/downloads/${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz" \
-    # && curl -fSLO --compressed "https://yarnpkg.com/downloads/${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz.asc" \
-    # && gpg --batch --verify yarn-v${YARN_VERSION}.tar.gz.asc yarn-v${YARN_VERSION}.tar.gz \
-    # && mkdir -p /opt/yarn \
-    # && tar -xzf yarn-v${YARN_VERSION}.tar.gz -C /opt/yarn --strip 1 \
-    # && ln -s /opt/yarn/bin/yarn /usr/bin/yarn \
-    # && ln -s /opt/yarn/bin/yarn /usr/bin/yarnpkg \
     && apk del .build-deps \
     && rm -rf /usr/local/src /tmp/* /usr/share/man /var/cache/apk/* \
       /root/.npm /root/.node-gyp /root/.gnupg /usr/lib/node_modules/npm/man \

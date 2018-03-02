@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-ENV NODE_VERSION=v6.12.0 NPM_VERSION=5
+ENV NODE_VERSION=v8.9.4 NPM_VERSION=5
 
 RUN apk upgrade --update \
     && apk add --no-cache \
@@ -53,9 +53,9 @@ RUN apk upgrade --update \
 
 COPY aliases.sh /etc/profile.d/
 
-LABEL maintainer="Jeff Kilbride <jeff@kilbride.com>" \
+LABEL maintainer="Liang Chun Wong <liangchunn@me.com>" \
       org.label-schema.docker.dockerfile="/Dockerfile" \
       org.label-schema.license="MIT" \
       org.label-schema.name="Node / NPM Alpine" \
       org.label-schema.vcs-type="Git" \
-      org.label-schema.vcs-url="https://github.com/jeff-kilbride/node-npm-alpine"
+      org.label-schema.vcs-url="https://github.com/liangchunn/node-npm-alpine"

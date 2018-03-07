@@ -5,6 +5,7 @@ ENV NODE_VERSION=v8.9.4 NPM_VERSION=5
 RUN apk upgrade --update \
     && apk add --no-cache \
         libstdc++ \
+        git \
     && apk add --no-cache --virtual .build-deps \
         binutils-gold \
         curl \
